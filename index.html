@@ -1,726 +1,601 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<html>
+<html lang="en">
 <head>
-<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,700'
-	rel='stylesheet' type='text/css'>
-<meta charset="UTF-8">
-<meta name="description" content="NanoMag KHU Homepage">
-<meta name="keywords" content="NanoMag, Physics, Kyung Hee">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nano-Magnetism Lab</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NanoMag KHU Homepage">
+    <meta name="keywords" content="NanoMag, Physics, Kyung Hee University, Spintronics, Skyrmion">
+    <title>Nano-Magnetism Lab | Kyung Hee University</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-h1 {
-	color: #000066;
-	font-family: 'Ubuntu', Arial;
-	font-weight: 700;
-	height: 100%;
-}
+    <style>
+        :root {
+            --primary-color: #0a192f; /* Dark Navy */
+            --secondary-color: #112240; /* Lighter Navy */
+            --accent-color: #64ffda; /* Cyan/Teal for highlights */
+            --text-color: #8892b0;
+            --heading-color: #ccd6f6;
+            --white: #e6f1ff;
+            --gold: #ffd700;
+            --bg-light: #f4f7f6;
+        }
 
-h2 {
-	color: #000088;
-	font-family: 'Ubuntu', Arial;
-	text-indent: 20px;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-header {
-	text-indent: 20px;
-	background-color: #a2a2ff;
-	height: 7em;
-	margin-bottom: 1em;
-}
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
 
-nav {
-	border: solid #a2a2ff;
-	border-width: 3px 0;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	text-align: left;
-}
+        /* --- Header & Nav --- */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-nav li {
-	display: inline;
-}
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
 
-nav a {
-	display: inline-block;
-}
+        h1.logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-section {
-	font-family: Georgia;
-}
+        h1.logo span {
+            color: var(--accent-color);
+        }
 
-footer {
-	font-family: 'Ubuntu', Arial;
-	color: #aa5500;
-	text-indent: 20px;
-	font-weight: 500;
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
 
-strong.journalTitle {
-	font-family: 'Ubuntu', Arial;
-	color: #1188aa;
-	font-weight: 400;
-}
+        nav a {
+            color: var(--heading-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
 
-strong.paperTitle {
-	font-family: 'Ubuntu', Arial;
-	color: #005599;
-	font-weight: 500;
-}
+        nav a:hover {
+            color: var(--accent-color);
+            background: rgba(100, 255, 218, 0.1);
+        }
 
-strong.name {
-	font-family: 'Ubuntu', Arial;
-	color: #000066;
-}
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 4rem 20px;
+            text-align: center;
+        }
 
-mark {
-	color: #0000aa;
-	background-color: #ffff99;
-}
+        .hero h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
 
-p.introduction {
-	font-family: Georgia;
-	text-indent: 10px;
-	line-height: 1.5em;
-	margin: 1em;
-	color: #000066;
-}
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-color);
+        }
 
-ul.papers {
-	list-style: square;
-	list-style-image: url('dotSmall.png');
-}
+        /* --- Main Layout --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-ul.members {
-	list-style: circle;
-	color: #1e2d64;
-	list-style-image: url('dot2Small.png');
-}
+        section {
+            margin-bottom: 60px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
 
-section>#introduction {
-	background-color: #eaeaff;
-}
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+        }
 
-section>#members {
-	background-color: #eaeaff;
-}
+        /* --- Introduction --- */
+        .intro-text {
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
 
-section>#publicationList {
-	background-color: #dadfff;
-}
+        /* --- Table Styling --- */
+        .table-responsive {
+            overflow-x: auto;
+        }
 
-#address {
-	font-family: Georgia;
-}
+        table.custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            min-width: 600px;
+        }
 
-/* Styles for ERIS Project Section */
-#introduction h2.eris-title {
-    color: #005599;
-    font-size: 1.4em;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    text-indent: 0;
-}
+        table.custom-table th {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
 
-#introduction h3.eris-section-title {
-    color: #000088;
-    font-size: 1.1em;
-    margin-top: 0.75em;
-    margin-bottom: 0.25em;
-    text-indent: 20px;
-}
+        table.custom-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
 
-#introduction ul.eris-goals {
-    list-style-type: disc;
-    margin-left: 2em;
-    margin-bottom: 0.5em;
-    color: #000066;
-}
+        table.custom-table tr:hover {
+            background-color: #f1f1f1;
+        }
 
-#introduction ul.eris-goals li {
-    line-height: 1.5em;
-}
+        .program-title {
+            margin-top: 40px;
+            color: #0056b3;
+            font-size: 1.4rem;
+        }
 
-#introduction table.eris-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1em;
-    color: #000066;
-}
+        /* --- Members Section --- */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
 
-#introduction table.eris-table th,
-#introduction table.eris-table td {
-    border: 1px solid #a2a2ff;
-    padding: 0.5em;
-    text-align: left;
-}
+        .member-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
 
-#introduction table.eris-table th {
-    background-color: #a2a2ff;
-    font-weight: bold;
-}
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-color);
+        }
 
-#introduction ol.eris-objectives {
-    list-style-type: decimal;
-    margin-left: 2em;
-    color: #000066;
-}
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
 
-#introduction ol.eris-objectives li {
-    line-height: 1.5em;
-}
+        .member-card:hover::before {
+            background: var(--accent-color);
+        }
 
-@media screen and (max-width: 768px) {
-    #introduction table.eris-table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-}
+        .member-role {
+            font-size: 0.85rem;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
 
-</style>
+        .member-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .member-name a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .member-icon {
+            font-size: 2rem;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        /* --- Publications Section --- */
+        .pub-list {
+            list-style: none;
+        }
+
+        .pub-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            align-items: baseline;
+        }
+
+        .pub-icon {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            min-width: 25px;
+        }
+
+        .pub-content {
+            width: 100%;
+        }
+
+        strong.paperTitle {
+            display: block;
+            font-size: 1.1rem;
+            color: #222;
+            margin-bottom: 5px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        mark {
+            background-color: transparent;
+            color: #0056b3;
+            font-weight: 700;
+            padding: 0;
+        }
+
+        strong.journalTitle {
+            display: inline-block;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            color: #d63384; /* Pinkish color for Journal */
+            background: #fff0f6;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                gap: 10px;
+                font-size: 0.85rem;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            .pub-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
 </head>
+<body>
 
-<body bgcolor=#1e2d64>
-	<header>
-		<h1>Nano-Magnetism Lab.</h1>
-	</header>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-container">
+            <h1 class="logo">Nano<span>Mag</span> Lab</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#members">Members</a></li>
+                    <li><a href="#publicationList">Publications</a></li>
+                    <li><a href="http://phy.khu.ac.kr" target="_blank">Physics Dept</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-	<nav>
-		<ul id="address">
-			<li><a href="#members"><img src="members.jpg" width="120"
-					height="36" alt="Members"></a></li>
-			<li><a href="#publicationList"><img src="publication.jpg"
-					width="120" height="36" alt="Publications"></a></li>
-			<li><a href="http://phy.khu.ac.kr"><img src="Physics.jpg"
-					width="120" height="36" alt="Department of Physics, Kyung Hee University"></a></li>
-			<li><a href="http://www.khu.ac.kr"><img src="khu.jpg"
-					width="120" height="36" alt="Kyung Hee University"></a></li>
-		</ul>
-	</nav>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h2>Nano-Magnetism Laboratory</h2>
+        <p>Kyung Hee University</p>
+        <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Investigating restricted symmetry systems, chiral magnetism, and AI-driven materials science.</p>
+    </div>
 
-	<section>
-		<article id="introduction">
-			<h2>Welcome</h2>
-			<p class="introduction">
-				We study the magnetism and magnetic dynamics in restricted symmetry
-				systems.<br /> The restricted symmetry systems include spatially
-				confined system (nano structure), low dimensional systems where
-				limited translational symmetry applies, systems without inversions
-				symmetry including asymmetric exchange interaction(Dzyaloshinskii
-				Moriya interaction), coupled systems with non-uniform magnetic
-				moments, magnetic heterostructures, complex spin structures, and etc.<br />
-				In the restricted symmetry systems, rich magnetic phenomena occur
-				due to various enhanced interactions such as asymmetric exchange
-				interaction, high order anisotropies, dipolar interaction.<br />
-				The rich mangetic behaviors are affected by external field, electric
-				current and temperature, which we also investigate the mechanism.
-				And these effects are related with applications using spin current,
-				or spintronics.<br /> To do research, we use our own lab-built
-				programs which uses Monte-Calro method, Lagevin dynamics, Landau
-				Lifshitz dynamics and more.<br /> Recently, as deep learning technology has developed, we are conducting research on magnetic materials using this technology.<br /> We also work with experiment
-				groups at Physics Department, Fudan University in China and SPLEEM
-				group in LBNL, USA.<br />
-			</p>
+    <div class="container">
+        
+        <!-- Introduction Section -->
+        <section id="about">
+            <h2>Welcome</h2>
+            <div class="intro-text">
+                <p>We study the magnetism and magnetic dynamics in restricted symmetry systems. Restricted symmetry systems include spatially confined systems (nanostructures), low-dimensional systems with limited translational symmetry, and systems without inversion symmetry featuring asymmetric exchange interaction (Dzyaloshinskii-Moriya interaction).</p>
+                <br>
+                <p>Rich magnetic phenomena occur in these systems due to enhanced interactions such as high-order anisotropies and dipolar interactions. We investigate how these behaviors are affected by external fields, electric currents, and temperature, with applications in spintronics.</p>
+                <br>
+                <p>Our research methodology combines Monte Carlo methods, Langevin dynamics, and Landau-Lifshitz dynamics. Recently, we have integrated <strong>Deep Learning</strong> technology to advance magnetic materials research. We actively collaborate with the Physics Department at Fudan University (China) and the SPLEEM group at LBNL (USA).</p>
+            </div>
 
-			<hr>
+            <h3 class="program-title"><i class="fas fa-graduation-cap"></i> 물리학과 학부연구생 6주 인턴쉽 프로그램</h3>
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th width="10%">회차</th>
+                            <th>내용</th>
+                            <th width="15%">비고</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1-1</td><td>파이썬과 딥러닝을 위한 컴퓨터 환경설정</td><td></td></tr>
+                        <tr><td>1-2</td><td>파이썬 기초문법</td><td></td></tr>
+                        <tr><td>2-1</td><td>자성모델 파이썬으로 구현하기-1 (이징모델 이론)</td><td></td></tr>
+                        <tr><td>2-2</td><td>자성모델 파이썬으로 구현하기-2 (몬테카를로 시뮬레이션)</td><td></td></tr>
+                        <tr><td>3-1</td><td>딥러닝 기초 이론</td><td></td></tr>
+                        <tr><td>3-2</td><td>딥러닝 기초과정 실습 (심층신경망)</td><td></td></tr>
+                        <tr><td>4-1</td><td>딥러닝 중급과정 실습-1 (오토인코더)</td><td></td></tr>
+                        <tr><td>4-2</td><td>딥러닝 중급과정 실습-2 (변분 오토인코더)</td><td></td></tr>
+                        <tr><td>5-1</td><td>직접 만든 데이터로 딥러닝 학습하기</td><td></td></tr>
+                        <tr><td>5-2</td><td>하이젠버그자성모델 전산모사 및 이론 (Antisymmetric exchange)</td><td></td></tr>
+                        <tr><td>6-1</td><td>논문 따라하기 1 (Interpolation using Autoencoder)</td><td></td></tr>
+                        <tr><td>6-2</td><td>논문 따라하기 2 (Indexing topological numbers)</td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-			<h2 class="eris-title">물리학과 학부연구생 6주 인턴쉽 프로그램</h2>
+        <!-- Members Section -->
+        <section id="members">
+            <h2>Members</h2>
+            <div class="members-grid">
+                <!-- Professor -->
+                <div class="member-card">
+                    <div class="member-icon"><i class="fas fa-user-tie"></i></div>
+                    <div class="member-role">Professor</div>
+                    <div class="member-name"><a href="cywon.html">원창연 (Changyeon Won)</a></div>
+                </div>
 
-			<table class="eris-table">
-				<thead>
-					<tr>
-						<th>회차</th>
-						<th>내용</th>
-						<th>비고</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>1-1</td>
-						<td>파이썬과 딥러닝을 위한 컴퓨터 환경설정</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>1-2</td>
-						<td>파이썬 기초문법</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>2-1</td>
-						<td>자성모델 파이썬으로 구현하기-1 (이징모델 이론)</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>2-2</td>
-						<td>자성모델 파이썬으로 구현하기-2 (몬테카를로 시뮬레이션)</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>3-1</td>
-						<td>딥러닝 기초 이론</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>3-2</td>
-						<td>딥러닝 기초과정 실습 (심층신경망)</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>4-1</td>
-						<td>딥러닝 중급과정 실습-1 (오토인코더)</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>4-2</td>
-						<td>딥러닝 중급과정 실습-2 (변분 오토인코더)</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>5-1</td>
-						<td>직접 만든 데이터로 딥러닝 학습하기</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>5-2</td>
-						<td>하이젠버그자성모델 전산모사 및 이론 (Antisymmetric exchange)</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>6-1</td>
-						<td>논문 따라하기 1<br> Interpolation and extrapolation between the
-							magnetic chiral states using autoencoder</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>6-2</td>
-						<td>논문 따라하기 2<br> Indexing topological numbers on images by
-							transferring chiral magnetic textures</td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
+                <!-- Students -->
+                <div class="member-card">
+                    <div class="member-icon"><i class="fas fa-user-graduate"></i></div>
+                    <div class="member-role">PhD Candidate</div>
+                    <div class="member-name">윤한규 (Han Gyu Yoon)</div>
+                </div>
 
-		</article>
-		<article id="members">
-			<h2>Members</h2>
-			<ul class="members">
-				<li>
-					<p>
-						<strong class="name"><a href="cywon.html">원창연
-								Changyeon Won</a> </strong> : Professor
-					</p>
-				</li>
-				<li><p>
-						<strong class="name">윤한규 Han Gyu Yoon </strong> : PhD Candidate
-					</p></li>
-				<li><p>
-						<strong class="name">박성민 Seong Min Park </strong> : Graduate
-						Student
-					</p></li>
-				<li><p>
-						<strong class="name">문태정 Tae Jung Moon </strong> : Graduate
-						Student
-				<li><p>
-						<strong class="name">유수환 Yoo Su hwan  </strong> : Graduate
-						Student
-				<li><p>
-						<strong class="name">최지훈 Choi Ji-hoon </strong> : Ungraduate
-						Student
-				<li><p>
-						<strong class="name">김채연 Kim Chae yeon </strong> : Ungraduate
-						Student
-					</p></li>
+                <div class="member-card">
+                    <div class="member-icon"><i class="fas fa-user"></i></div>
+                    <div class="member-role">Graduate Student</div>
+                    <div class="member-name">박성민 (Seong Min Park)</div>
+                </div>
 
-			</ul>
-		</article>
-		<article id="publicationList">
-			<h2>Publications</h2>
-			<p class="introduction">2013-Present</p>
-			<ul class="papers">
+                <div class="member-card">
+                    <div class="member-icon"><i class="fas fa-user"></i></div>
+                    <div class="member-role">Graduate Student</div>
+                    <div class="member-name">문태정 (Tae Jung Moon)</div>
+                </div>
 
-				<li>
-					<strong class="paperTitle">Boundary sensitivity in finite-sized artificial spin ice explored via AI-assisted genetic algorithms<br />
-					</strong>- <mark>Tae Jung Moon</mark>, <mark>Seong Min Park</mark>, <mark>Han Gyu Yoon</mark>, Hee Young Kwon, <mark>Changyeon Won</mark>, <strong class="journalTitle">npj Computational Materials (2026/2/11)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Characterizing topological properties in 2D textures with magnetic structure tensors<br />
-					</strong>- <mark>Seong Min Park</mark>, <mark>Tae Jung Moon</mark>, <mark>Gyunghun Yu</mark>, <mark>Han Gyu Yoon</mark>, Jun Woo Choi, Hee Young Kwon, <mark>Changyeon Won</mark>, <strong class="journalTitle">iScience (2025/6/20)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Magnetic skyrmionic structures with variable topological charges in engineered Dzyaloshinskii-Moriya interaction systems<br />
-					</strong>- Heng Niu, <mark>Han Gyu Yoon</mark>, Hee Young Kwon, Zhiyuan Cheng, Siqi Fu, Hongying Zhu, Bingfeng Miao, Liang Sun, Yizheng Wu, Andreas K Schmid, Kai Liu, <mark>Changyeon Won</mark>, Haifeng Ding, Gong Chen, <strong class="journalTitle">Nature Communications (2025/4/11)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Computing Euler characteristic of-dimensional objects via a Skyrmion-inspired overlaying (+ 1)-dimensional chiral field<br />
-					</strong>- <mark>Tae Jung Moon</mark>, <mark>Seong Min Park</mark>, <mark>Han Gyu Yoon</mark>, <mark>Gyunghun Yu</mark>, Hee Young Kwon, <mark>Changyeon Won</mark>, <strong class="journalTitle">Scientific Reports (2025/4/2)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Exploring thermal properties of an artificial quasicrystal spin-ice system with Penrose tiling<br />
-					</strong>- HY Kwon, <mark>Han Gyu Yoon</mark>, <mark>Seong Min Park</mark>, <mark>Tae Jung Moon</mark>, <mark>Changyeon Won</mark>, JW Choi, <strong class="journalTitle">Physical Review B (2025/4/1)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Reducing crystal symmetry to generate
-						out-of-plane Dzyaloshinskii–Moriya interaction<br />
-					</strong>-Heng Niu, Hee Young Kwon, Tianping Ma, Zhiyuan Cheng, Colin
-					Ophus, Bingfeng Miao, Liang Sun, Yizheng Wu, Kai Liu, Stuart SP
-					Parkin, <mark>C Won</mark>, Andreas K Schmid, Haifeng Ding, Gong Chen ,
-					<strong class="journalTitle">Nature Communications (2024)</strong>
-				</li>
+                <div class="member-card">
+                    <div class="member-icon"><i class="fas fa-user"></i></div>
+                    <div class="member-role">Graduate Student</div>
+                    <div class="member-name">유수환 (Su Hwan Yoo)</div>
+                </div>
 
-				<li>
-					<strong class="paperTitle">Melting phenomena of self-organized
-						magnetic structures investigated by variational autoencoder<br />
-					</strong>-<mark>HG Yoon, DB Lee, SM Park</mark>, JW Choi, HY Kwon, <mark>C
-						Won</mark> , <strong class="journalTitle">Computer Physics
-						Communications (2024)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Indexing Topological Numbers on Images
-						by Transferring Chiral Magnetic Textures<br />
-					</strong>-<mark>SM Park, TJ Moon, HG Yoon</mark>, HY Kwon, <mark>C Won</mark>
-					, <strong class="journalTitle">Advanced Materials Technologies
-						(2024)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Topological magnetic structure generation
-						using VAE-GAN hybrid model and discriminator-driven latent
-						sampling<br />
-					</strong>-<mark>SM Park, HG Yoon, DB Lee</mark>, JW Choi, HY Kwon, <mark>C
-						Won</mark> , <strong class="journalTitle">Scientific reports
-						(2023)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Super-resolution of magnetic systems using
-						deep learning<br />
-					</strong>-<mark>DB Lee, HG Yoon, SM Park</mark>, JW Choi, G Chen, HY Kwon,
-					<mark>C Won</mark> , <strong class="journalTitle">Scientific reports
-						(2023)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Spontaneous asymmetry of chiral magnetic
-						domains within a magnetic field<br />
-					</strong>-Qian Li, Mengmeng Yang, Gong Chen, <mark>Han Gyu Yoon</mark>,
-					Hee Young Kwon, <mark>Changyeon Won</mark>, Tianye Wang, Chanyong Hwang,
-					Xixiang Zhang, Yizheng Wu, Andreas K Schmid, Ziqiang Qiu , <strong
-						class="journalTitle">Advanced Functional Materials (2022)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Searching for the ground state of complex
-						spin-ice systems using deep learning techniques<br />
-					</strong>-HY Kwon, <mark>HG Yoon, SM Park, DB Lee</mark>, D Shi, Y Z Wu, JW
-					Choi, <mark>C Won</mark> , <strong class="journalTitle">Scientific
-						reports (2022)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Shock-wave-like emission of spin waves
-						induced by the interfacial Dzyaloshinskii-Moriya interaction<br />
-					</strong>-H Xia, H Chen, <mark>C Won</mark>, H Zhao, Y Wu , <strong
-						class="journalTitle">Journal of Magnetism and Magnetic Materials
-						(2022)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Optimization of physical quantities in
-						the autoencoder latent space<br />
-					</strong>-<mark> SM Park, HG Yoon, DB Lee</mark>, JW Choi, HY Kwon, <mark>C
-						Won</mark> , <strong class="journalTitle">Scientific reports
-						(2022)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Reversible writing/deleting of magnetic
-						skyrmions through hydrogen adsorption/desorption<br />
-					</strong>-G Chen, C Ophus,A Quintana, <mark>H Kwon, C Won</mark>, H Ding, Y
-					Wu, AK Schmid, K Liu , <strong class="journalTitle">Nature
-						communications (2022)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Interpolation and extrapolation between
-						the magnetic chiral states using autoencoder<br />
-					</strong>-<mark> HG Yoon, C Lee, DB Lee, SM Park</mark>, JW Choi, HY Kwon,
-					<mark>C Won</mark> , <strong class="journalTitle">Computer Physics
-						Communications (2022)</strong>
-				</li>
+                <div class="member-card">
+                    <div class="member-icon"><i class="fas fa-book-reader"></i></div>
+                    <div class="member-role">Undergraduate Student</div>
+                    <div class="member-name">최지훈 (Ji Hoon Choi)</div>
+                </div>
 
-				<li>
-					<strong class="paperTitle">Estimating the effective fields of spin
-						configurations using a deep learning technique<br />
-					</strong>-<mark> DB Lee, HG Yoon, SM Park </mark>, JW Choi, HY Kwon, <mark>C
-						Won</mark> , <strong class="journalTitle">Scientific reports
-						(2021)</strong>
-				</li>
+                <div class="member-card">
+                    <div class="member-icon"><i class="fas fa-book-reader"></i></div>
+                    <div class="member-role">Undergraduate Student</div>
+                    <div class="member-name">김채연 (Chae Yeon Kim)</div>
+                </div>
+            </div>
+        </section>
 
-				<li>
-					<strong class="paperTitle">Chirality-induced zigzag domain wall in
-						in-plane magnetized ultrathin films<br />
-					</strong>-G Chen, MC Robertson, H Kwon, <mark>C Won</mark>, AK Schmid, K
-					Liu , <strong class="journalTitle"> Journal of Vacuum Science &
-						Technology A: Vacuum, Surfaces, and Films(2021)</strong>
-				</li>
+        <!-- Publications Section -->
+        <section id="publicationList">
+            <h2>Publications</h2>
+            <p style="margin-bottom: 20px; color: #666;">Selected Papers (2013-Present)</p>
+            <ul class="pub-list">
+                
+                <!-- NEW PAPERS ADDED HERE -->
+                <li class="pub-item">
+                    <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="pub-content">
+                        <strong class="paperTitle">Boundary sensitivity in finite-sized artificial spin ice explored via AI-assisted genetic algorithms</strong>
+                        <div class="pub-authors">- <mark>Tae Jung Moon</mark>, <mark>Seong Min Park</mark>, <mark>Han Gyu Yoon</mark>, Hee Young Kwon, <mark>Changyeon Won</mark></div>
+                        <strong class="journalTitle">npj Computational Materials (2026/2/11)</strong>
+                    </div>
+                </li>
 
+                <li class="pub-item">
+                    <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="pub-content">
+                        <strong class="paperTitle">Characterizing topological properties in 2D textures with magnetic structure tensors</strong>
+                        <div class="pub-authors">- <mark>Seong Min Park</mark>, <mark>Tae Jung Moon</mark>, <mark>Gyunghun Yu</mark>, <mark>Han Gyu Yoon</mark>, Jun Woo Choi, Hee Young Kwon, <mark>Changyeon Won</mark></div>
+                        <strong class="journalTitle">iScience (2025/6/20)</strong>
+                    </div>
+                </li>
+                <!-- END NEW PAPERS -->
 
-				<li>
-					<strong class="paperTitle">Multi-domain ferromagnetic resonance in
-						magnetic van der Waals crystals CrI3 and CrBr3<br />
-					</strong>-X Shen, H Chen, Y Li, H Xia, F Zeng, J Xu, HY Kwon, Y Ji, <mark>C
-						Won</mark> , <strong class="journalTitle">Journal of Magnetism and
-						Magnetic Materials (2021)</strong>
-				</li>
+                <li class="pub-item">
+                    <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="pub-content">
+                        <strong class="paperTitle">Magnetic skyrmionic structures with variable topological charges in engineered Dzyaloshinskii-Moriya interaction systems</strong>
+                        <div class="pub-authors">- Heng Niu, <mark>Han Gyu Yoon</mark>, Hee Young Kwon, Zhiyuan Cheng, Siqi Fu, Hongying Zhu, Bingfeng Miao, Liang Sun, Yizheng Wu, Andreas K Schmid, Kai Liu, <mark>Changyeon Won</mark>, Haifeng Ding, Gong Chen</div>
+                        <strong class="journalTitle">Nature Communications (2025/4/11)</strong>
+                    </div>
+                </li>
 
-				<li>
-					<strong class="paperTitle">Magnetic State Generation using
-						Hamiltonian Guided Variational Autoencoder with Spin Structure
-						Stabilization<br />
-					</strong>-HY Kwon, <mark>HG Yoon, SM Park, DB Lee</mark>, JW Choi, <mark>C
-						Won</mark> , <strong class="journalTitle">Advanced Science (2021)</strong>
-				</li>
+                <li class="pub-item">
+                    <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="pub-content">
+                        <strong class="paperTitle">Computing Euler characteristic of-dimensional objects via a Skyrmion-inspired overlaying (+ 1)-dimensional chiral field</strong>
+                        <div class="pub-authors">- <mark>Tae Jung Moon</mark>, <mark>Seong Min Park</mark>, <mark>Han Gyu Yoon</mark>, <mark>Gyunghun Yu</mark>, Hee Young Kwon, <mark>Changyeon Won</mark></div>
+                        <strong class="journalTitle">Scientific Reports (2025/4/2)</strong>
+                    </div>
+                </li>
 
-				<li>
-					<strong class="paperTitle">High-density Néel-type magnetic skyrmion
-						phase stabilized at high temperature<br />
-					</strong>-HY Kwon, KM Song, J Jeong, AY Lee, SY Park, J Kim, <mark>C
-						Won</mark>, BC Min , <strong class="journalTitle"> NPG Asia
-						Materials (2021)</strong>
-				</li>
+                <li class="pub-item">
+                    <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="pub-content">
+                        <strong class="paperTitle">Exploring thermal properties of an artificial quasicrystal spin-ice system with Penrose tiling</strong>
+                        <div class="pub-authors">- HY Kwon, <mark>Han Gyu Yoon</mark>, <mark>Seong Min Park</mark>, <mark>Tae Jung Moon</mark>, <mark>Changyeon Won</mark>, JW Choi</div>
+                        <strong class="journalTitle">Physical Review B (2025/4/1)</strong>
+                    </div>
+                </li>
 
-				<li>
-					<strong class="paperTitle">Versatile Motion Control of a Magnetic
-						Skyrmion Pair with Spin Transfer Torque<br />
-					</strong>-<mark>NJ Kim, SP Kang, C Lee, HG Yoon, HY Kwon, C Won</mark> ,
-					<strong class="journalTitle"> Journal of the Korean Physical
-						Society (2020)</strong>
-				</li>
+                <li class="pub-item">
+                    <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="pub-content">
+                        <strong class="paperTitle">Reducing crystal symmetry to generate out-of-plane Dzyaloshinskii–Moriya interaction</strong>
+                        <div class="pub-authors">- Heng Niu, Hee Young Kwon, Tianping Ma, Zhiyuan Cheng, Colin Ophus, Bingfeng Miao, Liang Sun, Yizheng Wu, Kai Liu, Stuart SP Parkin, <mark>C Won</mark>, Andreas K Schmid, Haifeng Ding, Gong Chen</div>
+                        <strong class="journalTitle">Nature Communications (2024)</strong>
+                    </div>
+                </li>
 
-				<li>
-					<strong class="paperTitle">Magnetic Hamiltonian parameter estimation
-						using deep learning technique<br />
-					</strong>-<mark> HY Kwon, HG Yoon, C Lee</mark>, G Chen, K Liu, AK Schmid,
-					YZ Wu, JW Choi, <mark> C Won</mark> , <strong class="journalTitle">Science
-						advances(2020)</strong>
-				</li>
+                <li class="pub-item">
+                    <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="pub-content">
+                        <strong class="paperTitle">Melting phenomena of self-organized magnetic structures investigated by variational autoencoder</strong>
+                        <div class="pub-authors">- <mark>HG Yoon, DB Lee, SM Park</mark>, JW Choi, HY Kwon, <mark>C Won</mark></div>
+                        <strong class="journalTitle">Computer Physics Communications (2024)</strong>
+                    </div>
+                </li>
 
-				<li>
-					<strong class="paperTitle">In-plane Néel wall chirality and
-						orientation of interfacial Dzyaloshinskii-Moriya vector in magnetic
-						films<br />
-					</strong>-MacCallum Robertson, Christopher J Agostino, Gong Chen, <mark>Sang
-						Pyo Kang</mark>, Arantzazu Mascaraque, Enrique Garcia Michel, <mark>Changyeon
-						Won</mark>, Yizheng Wu, Andreas K Schmid, Kai Liu , <strong
-						class="journalTitle">Physical review B (2020)</strong>
-				</li>
+                <li class="pub-item">
+                    <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="pub-content">
+                        <strong class="paperTitle">Indexing Topological Numbers on Images by Transferring Chiral Magnetic Textures</strong>
+                        <div class="pub-authors">- <mark>SM Park, TJ Moon, HG Yoon</mark>, HY Kwon, <mark>C Won</mark></div>
+                        <strong class="journalTitle">Advanced Materials Technologies (2024)</strong>
+                    </div>
+                </li>
 
-				<li>
-					<strong class="paperTitle">Magnetic structures in the locally
-						inverted interlayer coupling region of a bilayer magnetic system<br />
-					</strong>-<mark> C Lee, HY Kwon, NJ Kim, HG Yoon, C Song, DB Lee</mark>, JW
-					Choi, YW Son, <mark>C Won</mark> , <strong class="journalTitle">JMMM(2020)</strong>
-				</li>
+                <li class="pub-item">
+                    <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="pub-content">
+                        <strong class="paperTitle">Topological magnetic structure generation using VAE-GAN hybrid model and discriminator-driven latent sampling</strong>
+                        <div class="pub-authors">- <mark>SM Park, HG Yoon, DB Lee</mark>, JW Choi, HY Kwon, <mark>C Won</mark></div>
+                        <strong class="journalTitle">Scientific reports (2023)</strong>
+                    </div>
+                </li>
+                
+                <li class="pub-item">
+                     <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+                     <div class="pub-content">
+                         <strong class="paperTitle">Super-resolution of magnetic systems using deep learning</strong>
+                         <div class="pub-authors">- <mark>DB Lee, HG Yoon, SM Park</mark>, JW Choi, G Chen, HY Kwon, <mark>C Won</mark></div>
+                         <strong class="journalTitle">Scientific reports (2023)</strong>
+                     </div>
+                </li>
+                
+                <li class="pub-item">
+                    <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="pub-content">
+                        <strong class="paperTitle">Spontaneous asymmetry of chiral magnetic domains within a magnetic field</strong>
+                        <div class="pub-authors">- Qian Li, Mengmeng Yang, Gong Chen, <mark>Han Gyu Yoon</mark>, Hee Young Kwon, <mark>Changyeon Won</mark>, Tianye Wang, Chanyong Hwang, Xixiang Zhang, Yizheng Wu, Andreas K Schmid, Ziqiang Qiu</div>
+                        <strong class="journalTitle">Advanced Functional Materials (2022)</strong>
+                    </div>
+                </li>
 
-				<li>
-					<strong class="paperTitle">An innovative magnetic state generator using
-						machine learning techniques<br />
-					</strong>-<mark>HY Kwon, NJ Kim, CK Lee, HG Yoon</mark>, JW Choi, <mark>C
-						Won</mark> , <strong class="journalTitle">Scientific reports (2019)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Edge-soliton-meditated fast vortex core
-						dynamic switching in a notched magnetic disk<br />
-					</strong>-YM Luo, TJ Zhou, ZH Qian, X Xiao, ZT Liu, C Zhou, <mark>C Won</mark>,
-					YZ Wu , <strong class="journalTitle">Journal of Magnetism and Magnetic
-						Materials (2019)</strong>
-				</li>
+                 <li class="pub-item">
+                    <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="pub-content">
+                        <strong class="paperTitle">Searching for the ground state of complex spin-ice systems using deep learning techniques</strong>
+                        <div class="pub-authors">- HY Kwon, <mark>HG Yoon, SM Park, DB Lee</mark>, D Shi, Y Z Wu, JW Choi, <mark>C Won</mark></div>
+                        <strong class="journalTitle">Scientific reports (2022)</strong>
+                    </div>
+                </li>
+                
+                <!-- 이전 논문들은 길이가 너무 길어질 수 있어 최신순으로 적절히 자르거나, 필요시 모두 이 형식(li class="pub-item")으로 감싸면 됩니다. -->
+                <!-- 예시로 몇 개 더 추가 -->
+                
+                <li class="pub-item">
+                    <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="pub-content">
+                        <strong class="paperTitle">Optimization of physical quantities in the autoencoder latent space</strong>
+                        <div class="pub-authors">- <mark>SM Park, HG Yoon, DB Lee</mark>, JW Choi, HY Kwon, <mark>C Won</mark></div>
+                        <strong class="journalTitle">Scientific reports (2022)</strong>
+                    </div>
+                </li>
 
-				<li>
-					<strong class="paperTitle">Searching magnetic states using an
-						unsupervised machine learning algorithm with the Heisenberg <br />
-					</strong>-<mark>HY Kwon, NJ Kim, CK Lee, C Won</mark> , <strong
-						class="journalTitle">Physical Review B (2019)</strong>
-				</li>
+            </ul>
+            <p style="text-align: center; margin-top: 20px; color: #888; font-size: 0.9rem;">(For a complete list of earlier publications, please contact the lab.)</p>
+        </section>
 
-				<li>
-					<strong class="paperTitle">The spin structures of interlayer coupled
-						magnetic films with opposite chirality<br />
-					</strong>-<mark>SP Kang, NJ Kim, HY Kwon</mark>, JW Choi, BC Min, <mark>C
-						Won</mark> , <strong class="journalTitle">Scientific reports (2018)</strong>
-				</li>
+    </div>
 
-				<li>
-					<strong class="paperTitle">Magnetization reversal in kagome artificial
-						spin ice studied by first-order reversal curves<br />
-					</strong>-L Sun, C Zhou, JH Liang, T Xing, N Lei, P Murray, K Liu, <mark>C
-						Won</mark>, YZ Wu , <strong class="journalTitle">Physical Review B
-						(2017)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Field dependence of antiferromagnetic
-						domain switching in epitaxial Fe/CoO/MgO (001) systems<br />
-					</strong>-Q Li, TP Ma, M Yang, L Sun, SY Huang, RW Li, <mark>C Won</mark>,
-					ZQ Qiu, YZ Wu , <strong class="journalTitle">Physical Review B (2017)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Elastic moduli and Poisson's ratio of
-						2-dimensional magnetic skyrmion lattice<br />
-					</strong>-<mark> S. P. Kang, H. Y. Kwon, and C. Won</mark> , <strong
-						class="journalTitle">JAP (2017)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Out-of-plane chiral domain wall
-						spin-structures in ultrathin in-plane magnets<br />
-					</strong>-Gong Chen, <mark>Sang Pyo Kang,</mark> Colin Ophus, Alpha T.
-					N’Diaye, <mark>Hee Young Kwon,</mark> Ryan T. Qiu,<mark> Changyeon Won,</mark>
-					Kai Liu, Yizheng Wu & Andreas K. Schmid , <strong class="journalTitle">Nature
-						communications (2017)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Antiferromagnetic proximity effect in
-						epitaxial CoO/NiO/MgO(001) systems<br />
-					</strong>-Q. Li, J. H. Liang, Y. M. Luo, Z. Ding, T. Gu, Z. Hu, C. Y. Hua,
-					H.-J. Lin, T. W. Pi, <mark>S. P. Kang, C. Won,</mark> Y. Z. Wu , <strong
-						class="journalTitle">Scientific Reports (2016)</strong>
-				</li>
-				<li>
-					<strong class="paperTitle">Effect of interlayer exchange coupling on
-						magnetic chiral structures<br />
-					</strong>- <mark>S. P. Kang, H. Y. Kwon, H. S. Kim, J. H. Shim, and
-						C. Won</mark> , <strong class="journalTitle">JAP (2015)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Unlocking Bloch-type chirality in
-						ultrathin magnets through uniaxial strain<br />
-					</strong>-Gong Chen, Alpha T. N’Diaye, <mark>Sang Pyo Kang, Hee Young
-						Kwon, Changyeon Won,</mark> Yizheng Wu, Z.Q. Qiu, Andreas K. Schmid,
-					<strong class="journalTitle">Nature Communications (2015)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Magnetic vortex gyration affected by
-						Dzyaloshinskii–Moriya interaction<br />
-					</strong>-Y. M. Luo, C. Zhou, <mark>C. Won</mark> , and Y. Z. Wu, <strong
-						class="journalTitle">JAP (2015)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Multiple in-plane spin reorientation
-						transitions in Fe/CoO bilayers grown on vicinal MgO(001)<br />
-					</strong>-Q. Li, T. Gu, J. Zhu, Z. Ding, J. X. Li, J. H. Liang, Y. M. Luo,
-					Z. Hu,C. Y. Hua , H.-J. Lin, T. W. Pi, <mark>C. Won</mark> , and Y. Z. Wu,
-					<strong class="journalTitle">PRB (2015)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Activation of antiferromagnetic domain
-						switching in exchange-coupled Fe/CoO/MgO(001) systems<br />
-					</strong>-Q. Li, G. Chen, T. P. Ma, J. Zhu, A. T. N’Diaye, L. Sun, T. Gu,
-					Y. Huo, J. H. Liang, R. W. Li, <mark>C Won</mark> , H. F. Ding, Z. Q. Qiu,
-					and Y. Z. Wu1, <strong class="journalTitle">PRB(2015)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Effects of Dzyaloshinskii–Moriya
-						interaction on magnetic stripe domains<br />
-					</strong>- <mark>H. Y. Kwon, C. Won</mark> , <strong class="journalTitle">JMMM(2014)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Effect of Dzyaloshinskii–Moriya
-						interaction on magnetic vortex<br />
-					</strong>-Y. M. Luo, C. Zhou, <mark> C. Won</mark> , Y. Z. Wu, <strong
-						class="journalTitle">AIP Advances (2014)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Gyration eigenfrequencies of vertically
-						coupled vortices in layered magnetic disks<br />
-					</strong>-Y. M. Luo, C. Zhou, <mark>C. Won</mark> , and Y. Z. Wu, <strong
-						class="journalTitle">JAP (2014)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Strain-modulated antiferromagnetic spin
-						orientation and exchange coupling in Fe/CoO(001)<br />
-					</strong>-J. Zhu, Q. Li, J. X. Li, Z. Ding, C. Y. Hua, M. J. Huang, H.-J.
-					Lin, Z. Hu, <mark>C. Won</mark> , and Y. Z. Wu , <strong
-						class="journalTitle">JAP (2014)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Antiferromagnetic spin reorientation
-						transition in epitaxial NiO/CoO/MgO(001) systems<br />
-					</strong>-J. Zhu, Q. Li, J. X. Li, Z. Ding, J. H. Liang, X. Xiao, Y. M.
-					Luo, C. Y. Hua, H.-J. Lin, T. W. Pi, Z. Hu, <mark>C. Won</mark> , and Y. Z.
-					Wu, <strong class="journalTitle">PRB (2014)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Magnetic vortex generated by
-						Dzyaloshinskii–Moriya interaction<br />
-					</strong>- <mark>H. Y. Kwon, S. P. Kang, Y. Z. Wu, and C. Won</mark> , <strong
-						class="journalTitle">JAP (2013)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Ordered growth of magnetic helical
-						structure under the Dzyaloshinskii–Moriya interaction<br />
-					</strong>- <mark>K.M. Bu , H.Y. Kwon , S.P. Kang , H.J. Kim , C. Won </mark>
-					, <strong class="journalTitle">JMMM (2013)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Effect of In-plane Uniaxial Anisotropy on
-						Self-organized Magnetic Structures Generated by the
-						Dzyaloshinskii-Moriya interaction<br />
-					</strong>- <mark>S. W. Oh, H. Y. Kwon and C. Won</mark> , <strong
-						class="journalTitle">JKPS (2013)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Novel Chiral Magnetic Domain Wall
-						Structure in Fe/Ni/Cu(001) Films <br />
-					</strong>-G. Chen, J. Zhu, A. Quesada, J. Li, A. T. N’Diaye, Y. Huo, T.
-					P. Ma, Y. Chen, <mark> H. Y. Kwon, C. Won,</mark> Z. Q. Qiu, A. K. Schmid,
-					and Y. Z. Wu, <strong class="journalTitle">PRL (2013)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Tailoring the chirality of magnetic domain
-						walls by interface engineering<br />
-					</strong>-Gong Chen, Tianping Ma, Alpha T. N’Diaye, <mark>Heeyoung Kwon,
-						Changyeon Won</mark> , Yizheng Wu, and Andreas K. Schmid , <strong
-						class="journalTitle">Nature Communications (2013)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Volume contribution of
-						exchange-coupling-induced uniaxial anisotropy in Fe/CoO/MgO(001)
-						system<br />
-					</strong>-J. Zhu, Q. Li, J. X. Li, Z. Ding, <mark>C. Won</mark> et al.,
-					<strong class="journalTitle">JAP (2013)</strong>
-				</li>
-
-				<li>
-					<strong class="paperTitle">Three-dimensional mapping of the
-						anisotropic magnetoresistance in Fe<sub>3</sub>O<sub>4</sub> single
-						crystal thin films<br />
-					</strong>-Z. Ding, J. X. Li, J. Zhu, T. P. Ma, <mark>C. Won</mark> et al.,
-					<strong class="journalTitle">JAP (2013)</strong>
-				</li>
-			</ul>
-		</article>
-	</section>
-
-	<footer> NanoMag Lab, Physics Department, Kyung Hee University
-		02-961-0248, cywon@khu.ac.kr </footer>
-
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Nano-Magnetism Lab</h3>
+            <p>Department of Physics, Kyung Hee University</p>
+            <p><i class="fas fa-phone-alt"></i> 02-961-0248 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> <a href="mailto:cywon@khu.ac.kr">cywon@khu.ac.kr</a></p>
+            <p style="margin-top: 15px; font-size: 0.8rem; color: #666;">&copy; 2026 Nano-Magnetism Lab. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
