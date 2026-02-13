@@ -148,50 +148,6 @@
             text-align: justify;
         }
 
-        /* --- Research Fields (Academic Style) --- */
-        .research-topic {
-            margin-bottom: 50px;
-        }
-
-        .research-topic h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            font-weight: 700;
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px;
-        }
-
-        .research-description {
-            font-size: 1rem;
-            color: #333;
-            margin-bottom: 15px;
-            text-align: justify;
-            line-height: 1.8;
-        }
-
-        .lab-focus {
-            font-size: 1rem;
-            color: #222;
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-left: 3px solid var(--primary-color);
-            margin-bottom: 15px;
-            font-style: italic;
-        }
-
-        .research-ref {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.85rem;
-            color: #666;
-            background: #f0f2f5;
-            padding: 8px 12px;
-            border-radius: 5px;
-            display: block;
-            margin-top: 10px;
-        }
-
         /* --- Table Styling --- */
         .table-responsive {
             overflow-x: auto;
@@ -391,9 +347,9 @@
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#research">Research</a></li>
                     <li><a href="#members">Members</a></li>
                     <li><a href="#publicationList">Publications</a></li>
+                    <li><a href="http://phy.khu.ac.kr" target="_blank">Physics Dept</a></li>
                 </ul>
             </nav>
         </div>
@@ -403,7 +359,7 @@
     <div class="hero">
         <h2>Nano-Magnetism Laboratory</h2>
         <p>Kyung Hee University</p>
-        <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Investigating restricted symmetry systems, topological magnetism, and AI-driven physics.</p>
+        <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Investigating restricted symmetry systems, chiral magnetism, and AI-driven materials science.</p>
     </div>
 
     <div class="container">
@@ -416,7 +372,7 @@
                 <br>
                 <p>Rich magnetic phenomena occur in these systems due to enhanced interactions such as high-order anisotropies and dipolar interactions. We investigate how these behaviors are affected by external fields, electric currents, and temperature, with applications in spintronics.</p>
                 <br>
-                <p>Our research methodology combines Monte Carlo methods, Langevin dynamics, and Landau-Lifshitz dynamics. Recently, we have integrated <strong>Machine Learning</strong> technology to advance research in statistical and many-body physics. We actively collaborate with the Physics Department at Fudan University (China) and the SPLEEM group at LBNL (USA).</p>
+                <p>Our research methodology combines Monte Carlo methods, Langevin dynamics, and Landau-Lifshitz dynamics. Recently, we have integrated <strong>Deep Learning</strong> technology to advance magnetic materials research. We actively collaborate with the Physics Department at Fudan University (China) and the SPLEEM group at LBNL (USA).</p>
             </div>
 
             <h3 class="program-title"><i class="fas fa-graduation-cap"></i> 물리학과 학부연구생 6주 인턴쉽 프로그램</h3>
@@ -445,57 +401,6 @@
                     </tbody>
                 </table>
             </div>
-        </section>
-
-        <!-- Research Fields Section (Fundamental/Academic Style) -->
-        <section id="research">
-            <h2>Research Fields</h2>
-            <p style="margin-bottom: 40px; font-size: 1.05rem; color: #444;">
-                Our research interests are centered on magnetic ordering and dynamics in restricted symmetry systems, topological magnetic solitons, and data-driven approaches to many-body physics. Ordered quantum materials are particularly attractive systems to study since they can support a variety of topological solitons such as domain walls, vortices, and skyrmions. We investigate the fundamental physics of these systems and their potential for future technologies.
-            </p>
-
-            <!-- Topic 1 -->
-            <div class="research-topic">
-                <h3>Dynamics of Magnetic Solitons</h3>
-                <p class="research-description">
-                    Topological magnetic solitons can exhibit interesting dynamics, often associated with their topological characteristics, as macroscopic manifestations of the spin Berry phase. For example, a skyrmion in a two-dimensional magnet experiences a Berry-phase-induced Magnus force, which is proportional to its winding number and the spin density of the magnet. By exploiting the interplay between the Dzyaloshinskii-Moriya interaction (DMI) and external fields, we investigate the stability and dynamics of these chiral structures.
-                </p>
-                <p class="research-description">
-                    Recently, we introduced a magnetic structure tensor as a powerful tool for characterizing topological properties in 2D spin textures. This approach allows us to effectively analyze the structures of spin patterns and identify topological defects such as the end or branching points of linear chiral structures, providing valuable insights into defect distribution and interactions.
-                </p>
-                <span class="research-ref">
-                    [Ref: S. M. Park et al., "Characterizing topological properties...", iScience (2025); H. Niu et al., Nature Communications (2025)]
-                </span>
-            </div>
-
-            <!-- Topic 2 -->
-            <div class="research-topic">
-                <h3>Artificial Metamaterials and Frustrated Systems</h3>
-                <p class="research-description">
-                    Moving beyond understanding materials already existing in nature, there are ongoing theoretical and experimental efforts in creating artificial composite materials with useful functionalities, which are referred to as metamaterials. Artificial Spin Ice (ASI) provides an exciting venue to look for controllable frustration and phase transitions. Since they can form exotic phases similar to natural materials and those phases can be manipulated on the level of elementary units, they offer a unique playground for statistical mechanics.
-                </p>
-                <p class="research-description">
-                     We explore the thermal properties of artificial quasicrystal spin-ice systems, such as those based on Penrose tiling. By employing Monte Carlo simulations, we investigate how aperiodicity and boundary conditions influence the magnetization reversal and entropy of these complex systems.
-                </p>
-                <span class="research-ref">
-                    [Ref: H. Y. Kwon et al., "Exploring thermal properties of an artificial quasicrystal spin-ice system...", Physical Review B (2025)]
-                </span>
-            </div>
-
-            <!-- Topic 3 -->
-            <div class="research-topic">
-                <h3>Machine Learning in Physics</h3>
-                <p class="research-description">
-                    Recent years have seen machine learning emerge as a powerful instrument for inferring general functional relationships or generating new data from provided samples. The questions that arise are: <em>How can we apply machine learning efficiently to develop a data-driven approach to the physics of magnetic systems?</em> and <em>Can we deduce the microscopic Hamiltonian governing a system solely from observations of its macroscopic configurations?</em>
-                </p>
-                <p class="research-description">
-                    We develop physics-informed deep learning frameworks to solve inverse problems in magnetism. This involves estimating Hamiltonian parameters from spin configurations and using Generative Adversarial Networks (GANs) and Variational Autoencoders (VAEs) to explore the topological space of magnetic textures. This work facilitates the discovery of ground states in complex spin systems where traditional analytical methods are intractable.
-                </p>
-                <span class="research-ref">
-                    [Ref: T. J. Moon et al., "Boundary sensitivity...", npj Computational Materials (2026); H. Y. Kwon et al., Science Advances (2020)]
-                </span>
-            </div>
-
         </section>
 
         <!-- Members Section -->
