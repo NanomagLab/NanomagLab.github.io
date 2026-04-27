@@ -10,11 +10,10 @@ Homepage for **Kyung Hee University Nano-Magnetism Lab**.
 
 - `index.html`: layout, styles, and rendering logic
 - `data/site-data.js`: structured content data
-  - `internshipProgram`
   - `members`
   - `publications`
 
-The page renders `members`, `publications`, and internship rows from `data/site-data.js`.
+The page renders `members` and `publications` from `data/site-data.js`.
 
 ## Update Content
 
@@ -49,14 +48,6 @@ Use this format:
 Notes:
 - Publications are auto-sorted by `date` (newest first).
 - If only the year is known, use `YYYY-01-01` and it will display as year only.
-
-### Internship Program
-
-Use this format:
-
-```js
-{ week: "Week 1", topic: "Program topic description" }
-```
 
 ## Local Preview
 

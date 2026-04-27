@@ -543,24 +543,6 @@
                         </div>
                     </aside>
                 </div>
-                <div class="program" style="margin-top: 1.2rem;">
-                    <h3><i class="fa-solid fa-graduation-cap"></i> Undergraduate 6-Week Internship Program</h3>
-                    <div style="overflow-x: auto;">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th style="width: 18%;">Week</th>
-                                    <th>Topic</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td colspan="2" class="subtle">Loading program data...</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </section>
 
             <section id="members">
@@ -606,8 +588,7 @@
     </footer>
     <script src="data/site-data.js"></script>
     <script>
-        const data = window.NANOMAG_DATA || { internshipProgram: [], members: [], publications: [] };
-        const internshipProgram = data.internshipProgram;
+        const data = window.NANOMAG_DATA || { members: [], publications: [] };
         const members = data.members;
         const publications = data.publications;
 
@@ -617,14 +598,6 @@
             return hasExactDay
                 ? date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })
                 : String(date.getFullYear());
-        }
-
-        function renderInternshipProgram() {
-            const tableBody = document.querySelector("#about .program tbody");
-            if (!tableBody) return;
-            tableBody.innerHTML = internshipProgram
-                .map((item) => `<tr><td>${item.week}</td><td>${item.topic}</td></tr>`)
-                .join("");
         }
 
         function renderMembers() {
@@ -659,7 +632,6 @@
                 .join("");
         }
 
-        renderInternshipProgram();
         renderMembers();
         renderPublications();
     </script>
